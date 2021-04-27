@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="post-entry">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{ post.title }}</h2>
+                    </div>
+                    
+                    <div class="card-body">
+                        <p class="card-text">{{ post.body }}</p>
+                        <a href="{% url 'post_edit' post.pk %}" class="btn btn-success ml-2">+ Edit Blog Post</a>
+                        <a href="{% url 'post_delete' post.pk %}" class="btn btn-success ml-2">+ Delete Blog Post</a>
+                    </div>
+                    <div class="card-footer">
+                        {% for comment in post.comments.all %}
+                            <p>
+                                <span class="font-weight-bold">
+                                {{ comment.author }} &middot;
+                                </span>
+                            {{ comment }}
+                            </p>
+                        {% endfor %}
+                        </div>
+                  </div>
+                  </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock content %} 
+
