@@ -31,8 +31,9 @@ $ cd Blog
 
 ### Installation
 Create and activate your virtual environment:
-Ubuntu
+
 ```
+Ubuntu
 $ python3 -m venv env
 $ source virtual/bin/activate
 (virtual)$ pip install -r requirements.txt
