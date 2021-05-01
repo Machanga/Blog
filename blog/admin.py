@@ -2,13 +2,13 @@ from django.contrib import admin
 from .models import Post, Comment
 
 # Register your models here.
-class CommentInline(admin.StackedInline): 
-    model = Comment
-    extra = 0
+# class CommentInline(admin.StackedInline): 
+#     model = Comment
+#     extra = 0
 
-class CommentAdmin(admin.ModelAdmin): 
-    inlines = [
-        CommentInline,
-    ]
+# class CommentAdmin(admin.ModelAdmin): 
+#     inlines = [
+#         CommentInline,
+#     ]
 admin.site.register(Post)
 admin.site.register(Comment)

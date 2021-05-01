@@ -14,17 +14,25 @@
                         <p class="card-text">{{ post.body }}</p>
                         <a href="{% url 'post_edit' post.pk %}" class="btn btn-success ml-2">+ Edit Blog Post</a>
                         <a href="{% url 'post_delete' post.pk %}" class="btn btn-success ml-2">+ Delete Blog Post</a>
+                        <a href="{% url 'add_comment_to_post' pk=post.pk %}" class="btn btn-success ml-2">Add comment</a>
                     </div>
                     <div class="card-footer">
                         {% for comment in post.comments.all %}
-                            <p>
-                                <span class="font-weight-bold">
-                                {{ comment.author }} &middot;
-                                </span>
-                            {{ comment }}
-                            </p>
+                            <div class="comment">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="date">{{ comment.created_date }}</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>{{ comment.comment|linebreaks }}</p>
+                                        <strong>{{ comment.name }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <p>No comments here yet :(</p>
                         {% endfor %}
-                        </div>
+                    </div>
                   </div>
                   </div>
             </div>

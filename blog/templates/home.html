@@ -17,11 +17,8 @@
                               <p class="card-text">{{ post.body }}</p>
                             </div>
                             <div class="card-footer">
-                                {% for comment in post.comments.all %}
-                                    <p> <strong>Author:</strong> {{ comment.author }} </p>
-                                    <p>comment:  {{ comment }}</p> 
-                                {% endfor %}
-                                </div>
+                                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
+                            </div>
                           </div>
                     </div>
                 </div>
